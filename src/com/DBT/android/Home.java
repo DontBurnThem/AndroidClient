@@ -10,9 +10,12 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 
 import com.DBT.android.R;
+import com.facebook.Request;
+import com.facebook.Response;
 import com.facebook.Session;
 import com.facebook.SessionState;
 import com.facebook.UiLifecycleHelper;
+import com.facebook.model.GraphUser;
 
 public class Home extends FragmentActivity  {
 	private static final int SPLASH = 0;
@@ -84,6 +87,10 @@ public class Home extends FragmentActivity  {
 	    uiHelper.onSaveInstanceState(outState);
 	}
 	private void onSessionStateChange(Session session, SessionState state, Exception exception) {
+		if (session != null && session.isOpened()) {
+	        // Get the user's data.
+	        makeMeRequest(session);
+	    }
 	    // Only make changes if the activity is visible
 	    if (isResumed) {
 	        FragmentManager manager = getSupportFragmentManager();
@@ -132,4 +139,29 @@ public class Home extends FragmentActivity  {
 		Intent intent = new Intent (Home.this, BarCodeScannerActivity.class);
 		startActivity(intent);
 	}
+	public static String userd_prova=  "http://dontburnthem.herokuapp.com/api/users/1/";
+	public static String user_id;
+	private void makeMeRequest(final Session session) {
+		System.out.println("Sono qui!");
+	    // Make an API call to get user data and define a 
+	    // new callback to handle the response.
+	    Request request = Request.newMeRequest(session, 
+	            new Request.GraphUserCallback() {
+	        @Override
+	        public void onCompleted(GraphUser user, Response response) {
+	            // If the response is successful
+	        	if (session == Session.getActiveSession()) {
+	                if (user != null) {
+	                    user_id = user.getId();
+	                }
+	            }
+	            if (response.getError() != null) {
+	                // Handle errors, will do so later.
+	            }
+	        }
+
+	    });
+	    request.executeAsync();
+	} 
+	
 }

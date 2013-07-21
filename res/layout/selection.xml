@@ -4,32 +4,61 @@
     android:layout_height="match_parent"
     android:orientation="horizontal" >
 
-    <Button
-        android:id="@+id/btn_scan"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="16dp"
-        android:onClick="Scan"
-        android:text="Scan" />
+        android:layout_centerHorizontal="true" >
 
-    <Button
-        android:id="@+id/btn_search"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/btn_scan"
-        android:layout_marginTop="80dp"
-        android:text="Search" />
+        <ImageView
+            android:id="@+id/home_logo"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true" />
 
-    <Button
-        android:id="@+id/btn_manage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/btn_scan"
-        android:layout_marginTop="23dp"
-        android:text="Manage" />
+</RelativeLayout>
+
+ <TextView
+     android:id="@+id/tv_welcome"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_above="@+id/btn_scan"
+     android:layout_alignParentLeft="true"
+     android:text="Welcome, "
+     android:textAppearance="?android:attr/textAppearanceMedium" />
+
+ <Button
+     android:id="@+id/btn_search"
+     style="@style/ButtonText"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:layout_alignParentBottom="true"
+     android:layout_alignParentLeft="true"
+     android:layout_marginBottom="81dp"
+     android:background="@drawable/yellowbutton"
+     android:text="Search" />
+
+ <Button
+     android:id="@+id/btn_manage"
+     style="@style/ButtonText"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:layout_above="@+id/btn_search"
+     android:layout_alignRight="@+id/btn_search"
+     android:background="@drawable/yellowbutton"
+     android:text="Manage" />
+
+ <Button
+     android:id="@+id/btn_scan"
+     style="@style/ButtonText"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:layout_above="@+id/btn_manage"
+     android:layout_alignParentRight="true"
+     android:layout_marginBottom="26dp"
+     android:background="@drawable/yellowbutton"
+     android:onClick="Scan"
+     android:text="Scan" />
+
 
 </RelativeLayout>

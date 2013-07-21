@@ -6,4 +6,13 @@
     <string name="hello_world">Hello world!</string>
     <string name="get_started">Welcome!</string>
 	<string name="app_id">1374754236080501</string>
+	<string name="choose_book_state">Choose book condition</string>
+	<string name="Insert_price">Insert a price here</string>
+	 <string-array name="book_states">
+        <item>Imballato</item>
+        <item>Letto</item>
+        <item>Usurato</item>
+        <item>Scritto</item>
+        <item>Danneggiato</item>
+    </string-array>
 </resources>

@@ -28,6 +28,7 @@ import android.util.Log;
 public class BookJSONParser extends AsyncTask<String, BookBeam, BookBeam> {
 	private static final String TAG_ISBN = "ISBN";
 	private static final String TAG_PHOTO_ID = "covers";
+	private static final String TAG_URL = "info_url";
 	private static final String TAG_NAME = "name";
 	private static final String TAG_DETAILS = "details";
 	private static final String TAG_EDITION = "edition_name";
@@ -58,7 +59,6 @@ public class BookJSONParser extends AsyncTask<String, BookBeam, BookBeam> {
 	
 	@Override
 	protected BookBeam doInBackground(String... params) {
-		
 		//String url = "http://openlibrary.org/api/books?bibkeys=ISBN:"+this.ISBN+"&jscmd=details&format=json";
 		String url = "http://openlibrary.org/api/books?bibkeys=ISBN:0201558025&jscmd=details&format=json";
 		 StringBuilder builder = new StringBuilder();
@@ -96,13 +96,37 @@ public class BookJSONParser extends AsyncTask<String, BookBeam, BookBeam> {
 			//book = jObj.getJSONArray(TAG_ISBN+":"+this.ISBN);
 			book_object = jObj.getJSONObject(TAG_ISBN+":"+this.ISBN);
 			book_readed = new BookBeam();
+			book_readed.setISBN(this.ISBN);
+			book_readed.setBook_URL(book_object.getString(TAG_URL));
 			JSONObject details = book_object.getJSONObject(TAG_DETAILS);
-			book_readed.setPhoto_ID(details.getString(TAG_PHOTO_ID));
+			String id = details.getString(TAG_PHOTO_ID);
+			String right_id="";
+			for (int i=0; i<id.length(); i++){
+				if (id.charAt(i) == '['){
+					
+				}else if (id.charAt(i)==']'){
+					
+				}else{
+					right_id=right_id+ id.charAt(i);
+				}
+			}
+			book_readed.setPhoto_ID(right_id);
 			book_readed.setSubtitle(details.getString(TAG_SUBTITLE));
 			book_readed.setEdition(details.getString(TAG_EDITION));
 			book_readed.setTitle(details.getString(TAG_TITLE));
 			book_readed.setAuthors(details.getString(TAG_AUTHORS));
-			book_readed.setPublichser(details.getString(TAG_PUBLISHERS));
+			String pub= details.getString(TAG_PUBLISHERS);
+			String right_pub="";
+			for (int i=0; i<pub.length(); i++){
+				if (pub.charAt(i) == '['){
+					
+				}else if (pub.charAt(i)==']'){
+					
+				}else{
+					right_pub=right_pub+ pub.charAt(i);
+				}
+			}
+			book_readed.setPublichser(right_pub);
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}

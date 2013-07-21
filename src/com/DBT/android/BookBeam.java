@@ -1,6 +1,13 @@
 package com.DBT.android;
 
 public class BookBeam {
+	public String getBook_URL() {
+		return Book_URL;
+	}
+	public void setBook_URL(String book_URL) {
+		Book_URL = book_URL;
+	}
+	private String Book_URL;
 	private String ISBN;
 	public String getISBN() {
 		return ISBN;

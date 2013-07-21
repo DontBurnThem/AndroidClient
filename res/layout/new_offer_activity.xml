@@ -3,14 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-
 <RelativeLayout
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center_vertical"
     android:layout_margin="10dp"
     android:orientation="horizontal" >
-
         <ImageView
             android:id="@+id/book_photo"
             android:layout_width="160dp"
@@ -18,7 +16,6 @@
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:src="@drawable/logo" />
-
 </RelativeLayout>
         <TextView
             android:id="@+id/booktitle"
@@ -41,5 +38,45 @@
             android:layout_marginTop="5dp"
             android:gravity="center_vertical"
             android:textAppearance="?android:attr/textAppearanceMedium" />
+		 <TextView
+            android:id="@+id/select_state"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:text="Select the condition of the book:"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+		 
+          <Spinner
+              android:id="@+id/spinner_state"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" 
+              android:entries="@array/book_states"
+              android:layout_marginTop="3dp"
+              android:prompt="@string/choose_book_state"
+              />
 
+          <EditText
+              android:id="@+id/txt_price"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:inputType="numberDecimal"
+              android:ems="10" >
+			  android:hint="@string/insert_price"
+              <requestFocus />
+          </EditText>
+          
+         <RelativeLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" >
+         <Button
+             android:id="@+id/btn_confirm_new_book"
+             style="@style/ButtonText"
+             android:layout_marginTop="10dp"
+             android:background="@drawable/yellowbutton"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_centerHorizontal="true"
+             android:text="Confirm" />
+          </RelativeLayout>
 </LinearLayout>
