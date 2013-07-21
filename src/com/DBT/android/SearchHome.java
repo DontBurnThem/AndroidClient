@@ -23,5 +23,16 @@ public class SearchHome extends Activity{
 			}
 			
 		});
+		Button btn_isbn = (Button)findViewById(R.id.btn_ISBN);
+		btn_isbn.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent (SearchHome.this, SearchOffers_isbn.class);
+				startActivity(intent);
+				
+			}
+			
+		});
 	}
 }

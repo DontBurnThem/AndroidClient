@@ -39,11 +39,12 @@
         <activity android:name="com.DBT.android.SearchHome" android:screenOrientation="portrait"/>
         <activity android:name="com.DBT.android.AddOfferActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.DBT.android.MapFragment_around" android:screenOrientation="portrait" />
+        <activity android:name="com.DBT.android.SearchOffers_isbn" android:screenOrientation="portrait" />
         <activity android:name="com.dm.zbar.android.scanner.ZBarScannerActivity" android:screenOrientation="landscape"/>
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/app_id"/>
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyAz2LXssXvGk2L_GjJZxNJI4fiv9RCyYao" />
+            android:value="AIzaSyAG-8o8ZtU_HlZp76cC5FQdtXylXWmUKXI" />
     </application>
 
 </manifest>

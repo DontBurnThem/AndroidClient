@@ -39,45 +39,44 @@
             android:gravity="center_vertical"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 		 <TextView
-            android:id="@+id/select_state"
+            android:id="@+id/book_condition"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center_vertical"
-            android:text="Select the condition of the book:"
             android:textAppearance="?android:attr/textAppearanceSmall" />
-		 
-          <Spinner
-              android:id="@+id/spinner_state"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content" 
-              android:entries="@array/book_states"
-              android:layout_marginTop="3dp"
-              android:prompt="@string/choose_book_state"
-              />
-
-          <EditText
-              android:id="@+id/txt_price"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:ems="10"
-              android:hint="@string/Insert_price"
-              android:inputType="numberDecimal" >
-
-              <requestFocus />
-          </EditText>
-          
+           <TextView
+            android:id="@+id/price"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+           <TextView
+            android:id="@+id/userselling"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+            <TextView
+            android:id="@+id/condition"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
          <RelativeLayout
               android:layout_width="match_parent"
               android:layout_height="wrap_content" >
          <Button
-             android:id="@+id/btn_confirm_new_book"
+             android:id="@+id/btn_contact"
              style="@style/ButtonText"
              android:layout_marginTop="10dp"
              android:background="@drawable/yellowbutton"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:layout_centerHorizontal="true"
-             android:text="Confirm" />
+             android:text="Contact the user" />
           </RelativeLayout>
 </LinearLayout>
