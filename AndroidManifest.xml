@@ -38,6 +38,7 @@
         <activity android:name="com.DBT.android.BarCodeScannerActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.DBT.android.SearchHome" android:screenOrientation="portrait"/>
         <activity android:name="com.DBT.android.AddOfferActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.DBT.android.BookOfferDetail" android:screenOrientation="portrait" />
         <activity android:name="com.DBT.android.MapFragment_around" android:screenOrientation="portrait" />
         <activity android:name="com.DBT.android.SearchOffers_isbn" android:screenOrientation="portrait" />
         <activity android:name="com.dm.zbar.android.scanner.ZBarScannerActivity" android:screenOrientation="landscape"/>

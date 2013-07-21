@@ -93,7 +93,7 @@ public class SearchISBNOffers extends AsyncTask<String, Void, String>{
 	
 	private static String get_User(String User) throws ClientProtocolException, IOException{
 		HttpClient client = new DefaultHttpClient();
-		String url ="http://dontburnthem.herokuapp.com"+ User;
+		String url =User;
 		//System.out.println("URL:" + url);
 		HttpGet request = new HttpGet(url);
 		HttpResponse response  = client.execute(request);
@@ -119,7 +119,7 @@ public class SearchISBNOffers extends AsyncTask<String, Void, String>{
 	}
 	private static String get_ISBN(String book) throws ClientProtocolException, IOException{
 		HttpClient client = new DefaultHttpClient();
-		String url ="http://dontburnthem.herokuapp.com"+ book;
+		String url =book;
 		//System.out.println("URL:" + url);
 		HttpGet request = new HttpGet(url);
 		HttpResponse response  = client.execute(request);

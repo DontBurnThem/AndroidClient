@@ -42,7 +42,7 @@ public class SearchOffers_aroundme extends AsyncTask<String, Void, String>{
 		String url ="http://dontburnthem.herokuapp.com/api/offers/search";
 		HttpGet request = new HttpGet(url);
 		HttpParams p = request.getParams();
-		p.setParameter("radius", 20);
+		p.setParameter("radius", 100000);
 		String ll = lat+","+lon;
 		p.setParameter("ll", ll);
 		request.setParams(p);
@@ -66,18 +66,18 @@ public class SearchOffers_aroundme extends AsyncTask<String, Void, String>{
 	private static String username;
 	private static String email;
 	private static void Parse_Result(String readed) throws JSONException, ClientProtocolException, IOException{
+		System.out.println("JSON:" + readed);
 		jObj = new JSONArray(readed);
 		offers = new ArrayList<OfferBeam>(jObj.length());
 		for (int i=0; i<jObj.length(); i++){
 		//String url, status, price, lat, lon, user, book;
 		JSONObject o = jObj.getJSONObject(i);
 		OfferBeam ob = new OfferBeam();
+		System.out.println("Book:" + o.getString("book"));
 		String ISBN = get_ISBN(o.getString("book"));
 		String User = o.getString("user");
 		get_User(User);
 		BookBeam bb = Parse_Book (ISBN);
-		//bb.setTitle("prova");
-		//bb.setAuthors("ermanno");
 		ob.setBookbeam(bb);
 		LatLng ll = new LatLng(Double.parseDouble(o.getString("lat")), Double.parseDouble(o.getString("lon")));
 		ob.setCoordinates(ll);
@@ -92,8 +92,8 @@ public class SearchOffers_aroundme extends AsyncTask<String, Void, String>{
 	
 	private static String get_User(String User) throws ClientProtocolException, IOException{
 		HttpClient client = new DefaultHttpClient();
-		String url ="http://dontburnthem.herokuapp.com"+ User;
-		//System.out.println("URL:" + url);
+		String url =User;
+		System.out.println("URL:" + url);
 		HttpGet request = new HttpGet(url);
 		HttpResponse response  = client.execute(request);
 
@@ -118,8 +118,8 @@ public class SearchOffers_aroundme extends AsyncTask<String, Void, String>{
 	}
 	private static String get_ISBN(String book) throws ClientProtocolException, IOException{
 		HttpClient client = new DefaultHttpClient();
-		String url ="http://dontburnthem.herokuapp.com"+ book;
-		//System.out.println("URL:" + url);
+		String url = book;
+		System.out.println("URL:" + url);
 		HttpGet request = new HttpGet(url);
 		HttpResponse response  = client.execute(request);
 
@@ -130,10 +130,12 @@ public class SearchOffers_aroundme extends AsyncTask<String, Void, String>{
 					while ((line = rd.readLine()) != null) {
 						builder.append(line);
 					}
+					System.out.println("Letto:" + builder.toString());
 		try {
 			String json3=null;
 			json3 = builder.toString();
 			JSONObject isbn = new JSONObject(json3);
+			System.out.println("isbn:"+ isbn.getString("isbn"));
 			return isbn.getString("isbn");
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block

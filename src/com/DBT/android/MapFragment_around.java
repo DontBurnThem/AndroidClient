@@ -46,9 +46,14 @@ public class MapFragment_around extends Activity implements AsyncTaskCompleteLis
 			@Override
 			public boolean onMarkerClick(Marker marker) {
 				for (int i=0; i<SearchOffers_aroundme.offers.size(); i++){
-					if (marker.getPosition().latitude == SearchOffers_aroundme.offers.get(i).getCoordinates().latitude){
+					System.out.println("latitude:" + marker.getPosition().latitude + " longitude:" + marker.getPosition().longitude);
+					System.out.println("Confronto con lat:" +SearchOffers_aroundme.offers.get(i).getCoordinates().latitude + " long:" + SearchOffers_aroundme.offers.get(i).getCoordinates().longitude);
+					if (marker.getPosition().latitude== SearchOffers_aroundme.offers.get(i).getCoordinates().latitude){
+						System.out.println("sono qua...");
 						if (marker.getPosition().longitude == SearchOffers_aroundme.offers.get(i).getCoordinates().longitude){
+							System.out.println("NO qua..");
 							if(marker.getTitle()== SearchOffers_aroundme.offers.get(i).getBookbeam().getTitle()+", "+ SearchOffers_aroundme.offers.get(i).getBookbeam().getAuthors()){
+								System.out.println("Eccolo!");
 								Intent intent = new Intent(MapFragment_around.this, BookOfferDetail.class);
 								intent.putExtra("from", "map");
 								intent.putExtra("index", i);
@@ -70,6 +75,7 @@ public class MapFragment_around extends Activity implements AsyncTaskCompleteLis
 	public void onTaskComplete(String result) {
 		if (result.equals("Finished")){
 			for (int i=0; i<SearchOffers_aroundme.offers.size(); i++){
+				System.out.println("Analizzo:" + SearchOffers_aroundme.offers.get(i).getBookbeam().getTitle());
 				LatLng coordinates = SearchOffers_aroundme.offers.get(i).getCoordinates();
 				String book_title = SearchOffers_aroundme.offers.get(i).getBookbeam().getTitle()+", "+ SearchOffers_aroundme.offers.get(i).getBookbeam().getAuthors();
 				map.addMarker(new MarkerOptions().position(coordinates).title(book_title));
