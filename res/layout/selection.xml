@@ -36,6 +36,7 @@
      android:layout_alignParentLeft="true"
      android:layout_marginBottom="81dp"
      android:background="@drawable/yellowbutton"
+     android:onClick="Search"
      android:text="Search" />
 
  <Button

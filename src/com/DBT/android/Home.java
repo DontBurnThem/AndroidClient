@@ -139,6 +139,10 @@ public class Home extends FragmentActivity  {
 		Intent intent = new Intent (Home.this, BarCodeScannerActivity.class);
 		startActivity(intent);
 	}
+	public void Search(View v){
+		Intent intent = new Intent (Home.this, SearchHome.class);
+		startActivity(intent);
+	}
 	public static String userd_prova=  "http://dontburnthem.herokuapp.com/api/users/1/";
 	public static String user_id;
 	private void makeMeRequest(final Session session) {
